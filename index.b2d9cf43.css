@@ -1,0 +1,217 @@
+@import "https://fonts.googleapis.com/css2?family=Roboto:wght@400;600;700&display=swap";
+body {
+  background-color: fafafa;
+  height: 4000px;
+  font-family: Roboto, sans-serif;
+}
+
+.chatbotOpenButton {
+  box-sizing: border-box;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  cursor: pointer;
+  z-index: 999;
+  background: #0593fb url("rocket_white.648a3c42.svg") center / 30px 30px no-repeat;
+  border: none;
+  border-radius: 10px;
+  padding: 30px;
+  position: fixed;
+  bottom: 80px;
+  right: 50px;
+}
+
+.chatbotContainer {
+  box-sizing: border-box;
+  z-index: 9999;
+  height: 100vh;
+  width: 50vw;
+  background-color: #f5f7fa;
+  display: block;
+  position: fixed;
+  top: 0;
+  right: 0;
+  box-shadow: -5px 8px 17px -6px #42445a;
+}
+
+.open {
+  display: block;
+}
+
+.headingOfBot {
+  box-sizing: border-box;
+  background: #0593fb;
+  border-radius: 14px 0 0;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px;
+  display: flex;
+}
+
+.headingOfBot .welcomeHeader {
+  color: #fafafa;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 700;
+  display: flex;
+}
+
+.headingOfBot .welcomeHeader:before {
+  content: "";
+  fill: red;
+  width: 30px;
+  height: 30px;
+  background: url("rocket_white.648a3c42.svg") center / cover no-repeat;
+  border: none;
+  margin-right: 12px;
+}
+
+.headingOfBot button {
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+  background: url("close-btn.842a9d9f.svg") center / cover no-repeat;
+  border: none;
+}
+
+.msgArea {
+  height: calc(100vh - 260px);
+  flex-direction: column;
+  padding: 30px;
+  display: flex;
+  overflow-y: scroll;
+}
+
+.msgArea::-webkit-scrollbar {
+  width: 4px;
+}
+
+.msgArea::-webkit-scrollbar-thumb {
+  background-color: #708090;
+  border-radius: 2px;
+}
+
+.msgArea .message {
+  width: fit-content;
+  align-items: center;
+  margin-top: 12px;
+  padding: 12px;
+  display: flex;
+}
+
+.msgArea .message--bot {
+  color: #171f3f;
+  background-color: #cbd2d9;
+  border-radius: 0 8px 8px;
+}
+
+.msgArea .message--bot-welcome {
+  color: #000;
+  background-color: #afcfef;
+  border: 1.4px solid #000;
+  border-radius: 0 0 8px 8px;
+  margin-top: 20px;
+}
+
+.msgArea .message--user {
+  color: #fafafa;
+  background-color: #0593fb;
+  border-radius: 8px 0 8px 8px;
+  align-self: flex-end;
+}
+
+.msgArea .list {
+  flex-wrap: wrap;
+  margin-top: 12px;
+  padding: 0;
+  display: flex;
+}
+
+.msgArea .list-element {
+  cursor: pointer;
+  color: #0593fb;
+  text-align: center;
+  width: fit-content;
+  border: 1.6px solid #0593fb;
+  border-radius: 8px;
+  margin: 8px 8px 8px 0;
+  padding: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  list-style-type: none;
+}
+
+.msgArea .list-element:hover {
+  color: #0594fb8a;
+  border: 1.6px solid #0594fb8a;
+}
+
+.formContainer {
+  box-sizing: border-box;
+  height: 100px;
+  background-color: #fff;
+  padding: 0 30px;
+}
+
+.formContainer form {
+  align-items: center;
+  display: flex;
+}
+
+.formContainer label {
+  width: 100%;
+  align-items: center;
+  margin: 10px 10px 10px 0;
+  display: flex;
+  position: relative;
+}
+
+.formContainer input {
+  width: 100%;
+}
+
+.formContainer input:focus {
+  z-index: 999;
+  background-color: #cbd2d9;
+  position: relative;
+}
+
+.formContainer input[type="submit"] {
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+  background: url("send.40860255.png") center / cover no-repeat;
+  border: none;
+}
+
+.formContainer .buttons-container {
+  justify-content: space-between;
+  display: flex;
+}
+
+.formContainer .buttons-container button {
+  width: 100%;
+  cursor: pointer;
+  color: #0593fb;
+  text-align: center;
+  background-color: #fff;
+  border: 1.6px solid #0593fb;
+  border-radius: 8px;
+  margin: 4px 0 4px 4px;
+  padding: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  list-style-type: none;
+}
+
+.formContainer .buttons-container button:first-child {
+  margin-left: 0;
+  margin-right: 4px;
+}
+
+.formContainer .buttons-container button:hover {
+  color: #0594fb8a;
+  border: 1.6px solid #0594fb8a;
+}
+
+/*# sourceMappingURL=index.b2d9cf43.css.map */
