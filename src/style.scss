@@ -28,14 +28,14 @@ body {
 .chatbotContainer {
     background-color: #F5F7FA;
     box-sizing: border-box;
-    display: block;
-    // display: none;
+    // display: block;
+    display: none;
     position: fixed;
     top: 0;
     right: 0;
     z-index: 9999;
     height: 100vh;
-    width: calc(100vw / 2);
+    width: calc(100vw / 4);
     box-shadow: -5px 8px 17px -6px rgba(66, 68, 90, 1);
     -webkit-box-shadow: -5px 8px 17px -6px rgba(66, 68, 90, 1);
     -moz-box-shadow: -5px 8px 17px -6px rgba(66, 68, 90, 1);
