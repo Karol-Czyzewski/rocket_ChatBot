@@ -8,26 +8,24 @@ Check the basic info from: [SpaceX-API](https://github.com/r-spacex/SpaceX-API),
 rocket_ChatBot is a place to look for SpaceX rocket launches.
 
 You can:
-
 - Chcek the info about SpaceX Corporation.
 - Quickly check out next and previous launches.
+
+
+Problem solving:
+While working on the project, the main problem was the application of the **SoC** principles.
+I kept the Separation of Concerns by separation functionalities for individual classes.
 
 ## 🧐 Usage
 * Click -> **rocket_Button** and...
 
 * Click these clouds to get info about SpaceX Corporation.
 
-* Type **command** to get
+* Type **command** to get:
 
-- next launch
-```
-@next
-```
+next launch -> **@next**
 
-- latest launch
-```
-@latest
-```
+latest launch -> **@latest**
 
 * If you forget these command, don't worry, click **Info launch** and here you go!
 
@@ -35,7 +33,7 @@ You can:
 
 ## 🔎 LIVE
 
-* Visit [rocket_ChatBot](https://karol-czyzewski.github.io/rocket_ChatBot/)
+* Visit -> [rocket_ChatBot](https://karol-czyzewski.github.io/rocket_ChatBot/)
 
 ## ⬇️ Installation
 1. Clone the repo
