@@ -1,4 +1,4 @@
-export const createElement = (type: string, cssClass: string = "null", textContent?: string) => {
+export const createElement = (type: string, cssClass: string, textContent?: string) => {
     const element = document.createElement(type);
     element.textContent = textContent || '';
     element.classList.add(cssClass);
