@@ -28,7 +28,6 @@ body {
 .chatbotContainer {
     background-color: #F5F7FA;
     box-sizing: border-box;
-    // display: block;
     display: none;
     position: fixed;
     top: 0;
@@ -73,7 +72,7 @@ body {
         }
     }
 
-    button {
+    .chatbotCloseButton {
         background: url('./img/close-btn.svg') no-repeat center center;
         background-size: cover;
         border: none;
@@ -162,12 +161,12 @@ body {
     padding: 0 30px;
     height: 100px;
 
-    form {
+    .form {
         display: flex;
         align-items: center;
     }
 
-    label {
+    .label {
         position: relative;
         display: flex;
         align-items: center;
@@ -177,17 +176,17 @@ body {
 
     }
 
-    input {
+    .input {
         width: 100%;
     }
 
-    input:focus {
+    .input:focus {
         position: relative;
         background-color: #cbd2d9;
         z-index: 999;
     }
 
-    input[type="submit"] {
+    .input[type="submit"] {
         background: url('./img/send.png') no-repeat center center;
         background-size: cover;
         border: none;
@@ -200,7 +199,7 @@ body {
         display: flex;
         justify-content: space-between;
 
-        button {
+        .cta-form {
             width: 100%;
             margin: 4px;
             margin-right: 0;
