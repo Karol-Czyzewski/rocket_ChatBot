@@ -17,9 +17,9 @@ export class ChatbotRender {
         this.chatbotStorage = chatbotStorage;
         this.chatbotController = chatbotController;
 
-        this.chatbotOpenButton = createElement('button');
-        this.chatbotCloseButton = createElement('button');
-        this.chatbotContainer = createElement('div');
+        this.chatbotOpenButton = createElement('button', 'chatbotOpenButton');
+        this.chatbotCloseButton = createElement('button', 'chatbotCloseButton');
+        this.chatbotContainer = createElement('div', 'chatbotContainer');
         this.messageContainer = createElement('div', 'msgArea');
     }
 
@@ -27,9 +27,6 @@ export class ChatbotRender {
         this.renderBotHeading();
         this.renderMessageArea();
         this.createInputField();
-
-        this.chatbotContainer.classList.add("chatbotContainer");
-        this.chatbotOpenButton.classList.add("chatbotOpenButton");
 
         this.chatbotOpenButton.addEventListener('click', () => this.chatbotContainer.classList.add("open"));
         this.chatbotCloseButton.addEventListener('click', () => this.chatbotContainer.classList.remove("open"));
@@ -55,22 +52,22 @@ export class ChatbotRender {
         const formContainer = createElement('div', 'formContainer');
         this.chatbotContainer.appendChild(formContainer);
 
-        const formElement = createElement('form');
+        const formElement = createElement('form', 'form');
         formContainer.appendChild(formElement);
 
-        const label = createElement('label');
+        const label = createElement('label', 'label');
         formElement.appendChild(label);
 
-        const input = createElement('input') as HTMLInputElement;
+        const input = createElement('input', 'input') as HTMLInputElement;
 
-        const inputSubmit = createElement('input') as HTMLInputElement;
+        const inputSubmit = createElement('input', 'input') as HTMLInputElement;
         inputSubmit.type = "submit";
         inputSubmit.value = "";
 
         const btnContainer = createElement('div', "buttons-container");
         formContainer.appendChild(btnContainer);
 
-        const clearStorageBtn = createElement('button', "null" ,'Clear');
+        const clearStorageBtn = createElement('button', 'cta-form' ,'Clear');
 
         clearStorageBtn.addEventListener('click', () => {
             this.chatbotStorage.removeMessagesFromStorage();
@@ -78,8 +75,7 @@ export class ChatbotRender {
             this.createGreetings();
         });
 
-        const aboutBtn = createElement('button');
-        aboutBtn.textContent = "Info launch";
+        const aboutBtn = createElement('button', 'cta-form', 'Info launch');
         aboutBtn.addEventListener('click', () => this.createMessage(
             `List of commands:
             1. @next - next launch
