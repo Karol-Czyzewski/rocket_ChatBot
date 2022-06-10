@@ -3,8 +3,9 @@ import { AvaibleWriters, Message} from './types';
 export class ChatbotStorage {
     messagesList: Message[];
 
-    constructor(messagesList: Message[]) {
-        this.messagesList = messagesList;
+    constructor() {
+        const messagesData = localStorage.getItem("messages");
+        this.messagesList = messagesData === null ? [] : JSON.parse(messagesData);
     }
 
     setMessageInStorage(value: string, type: AvaibleWriters) {
