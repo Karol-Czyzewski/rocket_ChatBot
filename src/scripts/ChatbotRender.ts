@@ -1,21 +1,21 @@
 import { AvaibleWriters, AvaibleCommands} from './types';
 import { createElement, getHtmlElement} from './ChatbotHelpers';
 import { ChatbotStorage } from './ChatbotStorage';
-import { ChatbotController } from './ChatbotController';
 import { questions } from './questions';
+import { ChatbotApi } from './ChatbotApi';
 
 export class ChatbotRender {
     chatbotStorage: ChatbotStorage;
-    chatbotController: ChatbotController;
+    chatbotApi: ChatbotApi;
 
     chatbotOpenButton: HTMLElement;
     chatbotCloseButton: HTMLElement;
     chatbotContainer: HTMLElement;
     messageContainer: HTMLElement;
 
-    constructor(chatbotStorage: ChatbotStorage, chatbotController: ChatbotController) {
+    constructor(chatbotStorage: ChatbotStorage, chatbotApi: ChatbotApi) {
         this.chatbotStorage = chatbotStorage;
-        this.chatbotController = chatbotController;
+        this.chatbotApi = chatbotApi;
 
         this.chatbotOpenButton = createElement('button', 'chatbotOpenButton');
         this.chatbotCloseButton = createElement('button', 'chatbotCloseButton');
@@ -91,18 +91,6 @@ export class ChatbotRender {
         formElement.addEventListener('submit', (e) => this.logSubmit(e, input))
     }
 
-    logSubmit(e: Event, input: HTMLInputElement) {
-        e.preventDefault();
-
-        if (input.value === '') return;
-        this.createMessage(input.value, "user");
-
-        const command = input.value as AvaibleCommands;
-        this.chatbotController.runCommand(command);
-
-        input.value = "";
-    }
-
     createGreetings() {
         this.createMessage("Helllo in rocket_Bot! There are some info about SpaceX Corporation.", "bot-welcome");
         const questionsList = createElement('ul', 'list');
@@ -124,5 +112,39 @@ export class ChatbotRender {
         const msg = createElement('div', 'message', text);
         msg.classList.add(`message--${writer}`);
         this.messageContainer.appendChild(msg);
+    }
+
+    runCommand(inputValue: string) {
+        switch (inputValue) {
+            case "@next":
+                this.createMessage('Loading data with next launch...', "bot");
+                this.renderSpaceXData("next");
+                break;
+            case "@latest":
+                this.createMessage('Loading data with latest launch...', "bot");
+                this.renderSpaceXData("latest");
+                break;
+            default:
+        }
+    }
+
+    logSubmit(e: Event, input: HTMLInputElement) {
+        e.preventDefault();
+
+        if (input.value === '') return;
+        this.createMessage(input.value, "user");
+
+        const command = input.value as AvaibleCommands;
+        this.runCommand(command);
+
+        input.value = "";
+    }
+
+    async renderSpaceXData(query: string) {
+        const data = await this.chatbotApi.getSpaceXData(query);
+        this.createMessage(`${query} rocket launch:
+        rocket name: ${data.name}
+        launch date: ${data.date_utc}`,
+        "bot");
     }
 }
